@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import CritList, { getFishData,getBugsData,getSeaData } from './components/fishes';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Fishes</h1>
+      <CritList dataLoader={getFishData} />
+      <hr />
+      <h1>Bugs</h1>
+      <CritList dataLoader={getBugsData} />
+      <h1>Sea Creatures</h1>
+      <hr />
+      <CritList dataLoader={getSeaData} />
     </div>
   );
 }
