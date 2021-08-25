@@ -23,7 +23,7 @@ Storage.prototype.load = function (
     }
 }
 
-const baseurl = "https://acnhapi.com/v1/"
+const baseurl = "http://acnhapi.com/v1/"
 
 async function getJSON(what) {
     const resp = await fetch(baseurl + what);
@@ -35,7 +35,7 @@ function createList(T, json, what) {
     let items = [];
     let created = [];
     for (const [, data] of Object.entries(json)) {
-        let item = new T(what,data);
+        let item = new T(what, data);
         item.save();
         items.push(item);
         created.push(item.getID());
@@ -57,6 +57,12 @@ export async function getBugsData() {
 
 export async function getSeaData() {
     return getData(CritItem, "sea", "seaCreatures");
+}
+
+
+
+export async function getArtData() {
+    return getData(CritItem, "art", "arts");
 }
 
 async function getData(T, what, plural) {
@@ -126,8 +132,6 @@ class CritItemComp extends Component {
         super(props);
         const { item } = this.props;
         this.item = item;
-        console.log(item)
-        console.log(item.found === true)
         this.state = {
             found: item.found === true
         }
@@ -164,29 +168,46 @@ class CritItemComp extends Component {
 
         const { item } = this.props;
         if (this.state.found) {
-            return (
-                <div>
-                    <img className="critipedia_img" alt="" src={item.data.icon_uri} />
-                </div>
-            )
-        } else {
-            let now = 0;
-            now += item.data.availability["time-array"].includes(curHour) ? 1 : 0;
-            const classNames = ["redText", "redText", "orangeText", "greenText"]
-            return (
-                <div>
-                    {item.data.availability.location},
-                    {item.data.availability.rarity}<br />
-                    {item.data.shadow}<br />
-                    {item.data.availability.time} <br />
-                    {item.data.availability["month-array-northern"].map(i => {
-                        now += i === curMonth ? 2 : 0;
-                        return <span className={i === curMonth ? "greenText" : "redText"}>{MONTHS[i]}</span>
-                    }).reduce((prev, curr) => [prev, ', ', curr])} <br />
-                    <span style={{ fontSize: "4em" }} className={classNames[now]}>★</span>
+            if (item.data.hasFake !== undefined) {
+                return (
+                    <div className="greenBorder">
+                        {/* <img className="critipedia_img" alt="" src={item.data.image_uri} /> */}
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        <img className="critipedia_img" alt="" src={item.data.icon_uri} />
+                    </div>
+                )
 
-                </div>
-            )
+            }
+        } else {
+            if (item.data.hasFake !== undefined) {
+                return (
+                <div className={item.data.hasFake?"redBorder":"orangeBorder"}>
+                    <img className="critipedia_img" alt="" src={item.data.image_uri} />
+                </div>)
+            } else {
+
+                let now = 0;
+                now += item.data.availability["time-array"].includes(curHour) ? 1 : 0;
+                const classNames = ["redText", "redText", "orangeText", "greenText"]
+                return (
+                    <div>
+                        {item.data.availability.location},
+                        {item.data.availability.rarity}<br />
+                        {item.data.shadow}<br />
+                        {item.data.availability.time} <br />
+                        {item.data.availability["month-array-northern"].map(i => {
+                            now += i === curMonth ? 2 : 0;
+                            return <span className={i === curMonth ? "greenText" : "redText"}>{MONTHS[i]}</span>
+                        }).reduce((prev, curr) => [prev, ', ', curr])} <br />
+                        <span style={{ fontSize: "4em" }} className={classNames[now]}>★</span>
+
+                    </div>
+                )
+            }
         }
 
     }
@@ -209,8 +230,8 @@ class CritItemComp extends Component {
 export default class CritList extends Component {
     constructor(props) {
         super(props);
-        const {dataLoader} = this.props;
-        this.dataLoader = dataLoader; 
+        const { dataLoader } = this.props;
+        this.dataLoader = dataLoader;
         this.state = {
             items: []
         }
