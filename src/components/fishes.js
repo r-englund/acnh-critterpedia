@@ -23,7 +23,7 @@ Storage.prototype.load = function (
     }
 }
 
-const baseurl = "http://acnhapi.com/v1/"
+const baseurl = "//acnhapi.com/v1/"
 
 async function getJSON(what) {
     const resp = await fetch(baseurl + what);
