@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "https://r-englund.github.io/acnh-critterpedia/static/css/main.fc452a6f.chunk.css",
+    "main.css": "https://r-englund.github.io/acnh-critterpedia/static/css/main.05991078.chunk.css",
     "main.js": "https://r-englund.github.io/acnh-critterpedia/static/js/main.71bb49f7.chunk.js",
     "main.js.map": "https://r-englund.github.io/acnh-critterpedia/static/js/main.71bb49f7.chunk.js.map",
     "runtime-main.js": "https://r-englund.github.io/acnh-critterpedia/static/js/runtime-main.46739837.js",
@@ -10,13 +10,13 @@
     "static/js/3.a64ca47a.chunk.js": "https://r-englund.github.io/acnh-critterpedia/static/js/3.a64ca47a.chunk.js",
     "static/js/3.a64ca47a.chunk.js.map": "https://r-englund.github.io/acnh-critterpedia/static/js/3.a64ca47a.chunk.js.map",
     "index.html": "https://r-englund.github.io/acnh-critterpedia/index.html",
-    "static/css/main.fc452a6f.chunk.css.map": "https://r-englund.github.io/acnh-critterpedia/static/css/main.fc452a6f.chunk.css.map",
+    "static/css/main.05991078.chunk.css.map": "https://r-englund.github.io/acnh-critterpedia/static/css/main.05991078.chunk.css.map",
     "static/js/2.c5ba18a9.chunk.js.LICENSE.txt": "https://r-englund.github.io/acnh-critterpedia/static/js/2.c5ba18a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.46739837.js",
     "static/js/2.c5ba18a9.chunk.js",
-    "static/css/main.fc452a6f.chunk.css",
+    "static/css/main.05991078.chunk.css",
     "static/js/main.71bb49f7.chunk.js"
   ]
 }
