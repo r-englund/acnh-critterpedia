@@ -170,8 +170,11 @@ class CritItemComp extends Component {
         if (this.state.found) {
             if (item.data.hasFake !== undefined) {
                 return (
-                    <div className="greenBorder">
-                        {/* <img className="critipedia_img" alt="" src={item.data.image_uri} /> */}
+                    <div className="doneArt">
+                        {<img className="critipedia_img" alt="" src={item.data.image_uri} />}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+                        </svg>
                     </div>
                 )
             } else {
@@ -185,9 +188,9 @@ class CritItemComp extends Component {
         } else {
             if (item.data.hasFake !== undefined) {
                 return (
-                <div className={item.data.hasFake?"redBorder":"orangeBorder"}>
-                    <img className="critipedia_img" alt="" src={item.data.image_uri} />
-                </div>)
+                    <div className={item.data.hasFake ? "redBorder" : "orangeBorder"}>
+                        <img className="critipedia_img" alt="" src={item.data.image_uri} />
+                    </div>)
             } else {
 
                 let now = 0;
