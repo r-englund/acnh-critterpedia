@@ -9,6 +9,13 @@ body {
     width: 1000px;
 }
 
+.songses_list,
+.arts_list {
+    flex-flow: row wrap;
+    height: auto;
+    width: auto;
+}
+
 .critipedia_item {
     height: 200px;
     width: 200px;
@@ -59,11 +66,22 @@ body {
     height: 100%;
     width: 100%;
     fill: rgba(0, 128, 0, 0.541);
+    stroke-width: 0.75px;
+    stroke-linejoin: round;
+    stroke: rgba(0, 0, 0, 1);
     position: absolute;
-    top: 0;
 }
 
 .doneArt img {
     position: absolute;
     top: 0;
+}
+
+.musicItem div {
+    position: absolute;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.8541);
+    font-weight: bolder;
+    font-size: 1.6em;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }

@@ -1,5 +1,5 @@
 import './App.css';
-import CritList, { getFishData,getBugsData,getSeaData,getArtData } from './components/fishes';
+import CritList, { getFishData,getBugsData,getSeaData,getArtData, getMusicData } from './components/fishes';
 
 
 
@@ -18,6 +18,8 @@ function App() {
       <hr />
       <h1>Art</h1>
       <CritList dataLoader={getArtData} />
+      <h1>Music</h1>
+      <CritList dataLoader={getMusicData} />
     </div>
   );
 }
